@@ -1,27 +1,74 @@
 # PaisesPWA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+![lightouse](./lighthouse.PNG)
 
-## Development server
+This is a PWA sample using Angular CLI 6, 
+Good practice concepts are worked, ServiceWorker, LazyLoading, Modularity, Routes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This sample contains following features.
+- Service Worker
+- Universal (SSR)
+- App Shell
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tutorial
 
-## Build
+1. Install Angular CLI 6
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```shell
+$ npm i -g @angular/cli
+```
 
-## Running unit tests
+2. Create an app
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+$ ng new my-app --routing --style=scss
+$ cd my-app
+```
 
-## Running end-to-end tests
+3. Add service worker
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```shell
+$ ng add @angular/pwa --project=my-app
+```
 
-## Further help
+4. Generate universal files
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```shell
+$ ng g universal --client-project=my-app
+```
+
+5. Run `npm install` to update dependencies.
+
+```shell
+$ npm i
+```
+
+6. Generate App Shell
+
+```shell
+$ ng g app-shell --client-project=my-app --universal-project=my-app
+```
+
+7. Add configurations for production build
+
+```json:angular.json
+"app-shell": {
+  "builder": "@angular-devkit/build-angular:app-shell",
+  "options": {
+    "browserTarget": "my-app:build",
+    "serverTarget": "my-app:server",
+    "route": "shell"
+  },
+  "configurations": {
+    "production": {
+      "browserTarget": "my-app:build:production"
+    }
+  }
+}
+```
+
+8. Run `ng run` to build the app
+
+```shell
+$ ng run my-app:app-shell:production
