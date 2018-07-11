@@ -1,24 +1,27 @@
 <p class="text-center"> Da click sobre cada pais para ver el detalle!.</p>
-<div class="container">
-    <table class="table table-striped table-dark puntero">
-        <thead>
-            <tr>
-                <th>Bandera</th>
-                <th>Nombre</th>
-                <th>Capital</th>
-                <th>Codigo</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr id="tool" *ngFor="let pais of paises" (click)="verPais(pais.alpha3Code)" data-toggle="tooltip" title="Click para ver Detalle!">
-                <td>
-                    <img [src]="pais.flag" width="30" height="30">
-                </td>
-                <td>{{pais.name}}</td>
-                <td>{{pais.capital}}</td>
-                <td>{{pais.callingCodes}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container p-2">
+    <div class="table-responsive">
+        <table class="table table-striped table-dark puntero">
+            <thead>
+                <tr class="text-center">
+                    <th>Bandera</th>
+                    <th>Nombre</th>
+                    <th>Capital</th>
+                    <th>Codigo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" id="tool" *ngFor="let pais of paises" (click)="verPais(pais.alpha3Code)" data-toggle="tooltip" title="Click para ver Detalle!">
+                    <td>
+                        <img [src]="pais.flag" width="30" height="30">
+                    </td>
+                    <td>{{pais.name}}</td>
+                    <td>{{pais.capital}}</td>
+                    <td>
+                        <h6><small>{{pais.callingCodes}}</small></h6>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
