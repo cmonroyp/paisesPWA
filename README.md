@@ -2,7 +2,8 @@
 
 ![lightouse](./lighthouse.PNG)
 
-This is a PWA sample using Angular CLI 6.
+This is a PWA sample using Angular CLI 6, 
+Good practice concepts are worked, ServiceWorker, LazyLoading, Modularity, Routes
 
 This sample contains following features.
 - Service Worker
