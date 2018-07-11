@@ -1,3 +1,3 @@
 # PaisesPWA
 
-![lightouse](./lighthouse.png)
+![lightouse](./lighthouse.PNG)
