@@ -1,0 +1,30 @@
+<div class="container p-5">
+    <table class="table table-striped table-dark puntero">
+        <thead>
+            <tr>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Capital</th>
+                <th>Poblacion</th>
+                <th>Moneda</th>
+                <th>Area</th>
+                <th>Coordenadas</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let pais of detailCountry">
+                <td>
+                    <img [src]="pais.flag" width="30" height="30">
+                </td>
+                <td>{{pais.name}}</td>
+                <td>{{pais.capital}}</td>
+                <td>{{pais.population | number}}</td>
+                <td>{{pais.currencies[0].symbol}} {{pais.currencies[0].name}}</td>
+                <td>{{pais.area | number}}</td>
+                <td>lat-lgn: {{pais.latlng}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
