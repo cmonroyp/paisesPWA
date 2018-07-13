@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 //servicio 
 import { CountryService } from '../../services/';
+import { NgProgress } from '@ngx-progressbar/core';
 // import { CountryService } from '../../services/country.service';
 
 @Component({
@@ -13,19 +14,46 @@ import { CountryService } from '../../services/';
 export class CountryspanishComponent implements OnInit {
 
   paises: Array<any> = [];
+
+  startedClass = false;
+  completedClass = false;
+  preventAbuse = false;
+
   constructor(private countryService: CountryService,
-              private router: Router) { }
+              private router: Router,
+              ) { 
+                }
+              
 
   ngOnInit() {
     this.getCountrys();
+    
   }
 
+
   getCountrys(){
+   
+
     this.countryService.getCountrys()
           .subscribe(resp=>{
              this.paises = resp;
              console.log(this.paises)
+          
           })
+  }
+
+  onStarted() {
+    this.startedClass = true;
+    setTimeout(() => {
+      this.startedClass = false;
+    }, 800);
+  }
+
+  onCompleted() {
+    this.completedClass = true;
+    setTimeout(() => {
+      this.completedClass = false;
+    }, 800);
   }
 
   verPais(cod: string){

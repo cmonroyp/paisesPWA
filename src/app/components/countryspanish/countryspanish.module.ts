@@ -11,10 +11,15 @@ import { CountrySpanishRoutingModule } from './countryspanish.routing.module';
 // import { CountryService } from '../../services/country.service';
 import { CountryService } from '../../services/';
 
+
+//peticiones http 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
-    CountrySpanishRoutingModule
+    CountrySpanishRoutingModule,
+    HttpClientModule, 
   ],
   declarations: [CountryspanishComponent],
   providers: [CountryService]
